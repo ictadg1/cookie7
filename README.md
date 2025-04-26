@@ -3,7 +3,7 @@
 ## Introduction @showdialog
 
 Let's build a simple Cookie Clicker 7 game! In this game, you'll click on a cookie sprite to earn points. The more you click, the more cookies you collect! Cool Huh?
-![Cookie clicker game 4](cookie.png)
+![Cookie clicker game 4](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie.png)
 
 ## Step 1: Create a cookie sprite @fullscreen
 
