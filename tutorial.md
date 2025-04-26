@@ -1,32 +1,139 @@
- # Cookie Clicker Arcade Game 7
+# Cookie Clicker Game Tutorial
 
-## Introduction @showdialog
+In this tutorial, we'll create a simple Cookie Clicker game where players click a cookie to earn points!
 
-Let's build a simple Cookie Clicker 7 game! In this game, you'll click on a cookie sprite to earn points. The more you click, the more cookies you collect! Cool Huh?
-![Cookie clicker game 4](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie.png)
+## Step 1: Create a cookie sprite
 
-## Step 1: Create a cookie sprite @fullscreen
+First, let's create a cookie sprite that players will click.
 
-First, let's create a delicious cookie sprite that players will click on.
+- Click on the **Sprites** toolbox category
+- Find and use `sprites.create` to make a new sprite
+- Draw a cookie or use `assets.image` with a built-in image
+- Position your cookie in the center of the screen
 
 ```blocks
-let cookie = sprites.create(img`
-    . . . . . . e e e e . . . . . .
-    . . . . e e 4 5 5 5 e e . . . .
-    . . . e 4 5 6 2 2 7 6 5 e . . .
-    . . e 5 6 6 7 2 2 6 7 7 6 e . .
-    . e 5 5 7 7 7 6 6 7 7 7 5 5 e .
-    . e 5 6 7 7 8 8 8 8 7 7 7 5 e .
-    . e 5 5 7 7 8 8 8 8 7 8 7 5 e .
-    e 4 5 5 6 7 8 7 7 8 7 8 6 5 4 e
-    e 5 5 5 6 7 8 7 7 8 8 6 5 5 5 e
-    e 5 5 5 6 6 8 8 8 8 7 6 5 5 5 e
-    e 5 5 5 e 7 7 7 7 7 7 e 5 5 5 e
-    e 5 5 e d 7 7 7 7 7 7 d e 5 5 e
-    . e e d d d e e e e d d d e e .
-    . . e d d e 5 5 5 5 e d d e . .
-    . . . e e 5 5 5 5 5 5 e e . . .
-    . . . . e 5 5 5 5 5 5 e . . . .
-`, SpriteKind.Player)
-cookie.setPosition(80, 60)
+let myCookie = sprites.create(assets.image`cookie`, SpriteKind.Player)
+myCookie.setPosition(80, 60)
 ```
+
+## Step 2: Add a score variable
+
+Next, we'll create a variable to keep track of how many cookies we've clicked.
+
+- Click on the **Variables** toolbox category
+- Create a new variable called `score`
+- Set its starting value to 0
+- Use `info.setScore(0)` to display it on screen
+
+```blocks
+let score = 0
+info.setScore(score)
+```
+
+## Step 3: Make the cookie clickable
+
+Now let's make the cookie respond when we click it.
+
+- Find the `on sprite pressed` block in the **Sprites** category
+- Select your cookie sprite
+- Inside this block, we'll add code to increase the score
+
+```blocks
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
+    score += 1
+    info.setScore(score)
+})
+```
+
+## Step 4: Add animation when clicked
+
+Let's make the cookie grow slightly when clicked and then return to normal size.
+
+- Inside the `on sprite pressed` block
+- Use `scale` to make the cookie bigger briefly
+- Then use `scale` again to return it to normal size
+
+```blocks
+let myCookie: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
+    score += 1
+    info.setScore(score)
+    myCookie.scale = 1.2
+    pause(100)
+    myCookie.scale = 1
+})
+```
+
+## Step 5: Add cookie upgrades
+
+Let's add a feature to make each click worth more after reaching certain scores.
+
+- Add a new variable called `clickValue`
+- Set its starting value to 1
+- Create a `forever` loop that checks your score
+- Increase `clickValue` at certain score milestones
+
+```blocks
+let clickValue = 1
+forever(function () {
+    if (score == 10) {
+        game.showLongText("Upgrade! Clicks now worth 2 points!", DialogLayout.Bottom)
+        clickValue = 2
+    }
+    if (score == 30) {
+        game.showLongText("Upgrade! Clicks now worth 5 points!", DialogLayout.Bottom)
+        clickValue = 5
+    }
+})
+```
+
+## Step 6: Use the click value
+
+Update the score increase to use our `clickValue` variable:
+
+```blocks
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
+    score += clickValue
+    info.setScore(score)
+    myCookie.scale = 1.2
+    pause(100)
+    myCookie.scale = 1
+})
+```
+
+## Step 7: Add sound effects
+
+Add sounds when clicking the cookie or getting an upgrade.
+
+- Find the `play sound` block in the **Music** category
+- Add it inside your sprite pressed event
+- Add different sounds for upgrades
+
+```blocks
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
+    score += clickValue
+    info.setScore(score)
+    myCookie.scale = 1.2
+    music.baDing.play()
+    pause(100)
+    myCookie.scale = 1
+})
+```
+
+## Step 8: Create a game goal
+
+Finally, let's add a win condition when the player reaches 100 cookies.
+
+- Use an `if` statement to check the score
+- Show a win message and effects when the goal is reached
+
+```blocks
+forever(function () {
+    if (score >= 100) {
+        game.over(true)
+        game.showLongText("You are a master cookie clicker!", DialogLayout.Center)
+    }
+})
+```
+
+That's it! You've now created a basic Cookie Clicker game. Try adding more upgrades or custom graphics to make the game your own!
