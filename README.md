@@ -21,128 +21,115 @@ We'll add code inside it in the next steps
 
 ## Step 2: Set the background color @fullscreen
 
-Let's add a **green** `||scene:set background color to (color)||` block to make our game look nice.
+Let's add a **blue** `||scene:set background color to (color)||` block to make our game look nice.
 
 ![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-background.png)
 
-- Choose the color as shown in the blocks below
+1. Choose the block as shown below
+2. Select the color "teal"
+3. Drag the block into the **green** on start block 
 
 ```blocks
 // @highlight
 scene.setBackgroundColor(6)
 ```
 
-## Step 3: Create a cookie @fullscreen
+## Step 3: Create a cookie 
+Now let's add a cookie that our player can click on. 
 
-
-Now let's add a cookie that our player can collect. Find the **red** `||sprites:set mysprite to sprite[] of kind Player||` block and change the sprite name to "Cookie".
+1. Find the **red** `||sprites:set mysprite to sprite[] of kind Player||` block.
 
 ![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-sprite.png)
 
+`2`. Drag the set sprite block into the on start block as shown below
+
 ```blocks
 scene.setBackgroundColor(6)
 // @highlight
-let Cookie = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . e e e e e e . . . . . 
-    . . . . e e e e e e e e . . . . 
-    . . . e e e d d d d e e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e e d d d d e e e . . . 
-    . . . . e e e e e e e e . . . . 
-    . . . . . e e e e e e . . . . . 
+let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Player)
 ```
 
-## Step 4: Set up the score @fullscreen
+## Step 4: Draw the cookie in the Image editor
 
-We need to keep track of how many cookies we collect. Add the **red** `set score to` block from the Info category.
+1. Click on the grey box of the Sprite
 
-```blocks
-scene.setBackgroundColor(6)
-let Cookie = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . e e e e e e . . . . . 
-    . . . . e e e e e e e e . . . . 
-    . . . e e e d d d d e e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e e d d d d e e e . . . 
-    . . . . e e e e e e e e . . . . 
-    . . . . . e e e e e e . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
-// @highlight
-info.setScore(0)
-```
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-sprite-edit.png)
 
-## Step 5: Create the player @fullscreen
+`2.` Set the canvas dimensions to 100 x 100 
+`3.` Draw Cookie as shown below
 
-Now we need to create a player that we can control. Add another **red** `set sprite to` block and change the sprite name to "player1".
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-draw-cookie.png)
 
-```blocks
-scene.setBackgroundColor(6)
-let Cookie = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . e e e e e e . . . . . 
-    . . . . e e e e e e e e . . . . 
-    . . . e e e d d d d e e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e e d d d d e e e . . . 
-    . . . . e e e e e e e e . . . . 
-    . . . . . e e e e e e . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
-info.setScore(0)
+
+## Step 5. Rename mySprite to Cookie
+
+1. Click on mySprite down arrow as shown below
+
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-rename-variable.png)
+
+`2.` Rename "mySprite" to Cookie
+
+## Step 6: Set up the score 
+
+We need to keep track of how many cookies we click on. Add the **pink** `||info:set score to||` block from the Info category.
+
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-info-set-score.png)
+
+`3.` Drag the set score to 0 block into the on start block as shown below
+
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-6.png)
+
+
+## Step 7: Create the player
+
+Now we need to create a player that we can control. 
+
+`1.` Add another **red** `||sprites:set sprite to||` block and change the sprite name to "player1".
+```block
 // @highlight
 let player1 = sprites.create(img`
     f 
     `, SpriteKind.Player)
 ```
 
-## Step 6: Add mouse movement @fullscreen
+`2.` Drag the player1 set sprite to block into the on start block as shown below 
 
-We want our player to follow the mouse. Find the **purple** `on mouse move` block from the Browser category.
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-7.png)
 
-```blocks
-// @highlight
-browserEvents.onMouseMove(function (x, y) {
-    
-})
-```
 
-## Step 7: Control the player @fullscreen
+## Step 8: Add mouse movement @fullscreen
 
-Now make the player follow your mouse cursor. Inside the `on mouse move` block, add the **red** `set sprite position to` block.
+We want our player to follow the mouse. Find the **purple** `||browser events:on mouse move||` block from the Browser category.
 
-```blocks
-let player1: Sprite = null
-// @highlight
-browserEvents.onMouseMove(function (x, y) {
-    player1.setPosition(x, y)
-})
-```
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-browser-mouse-move.png)
+
+
+## Step 9: Control the player
+
+Now make the player follow your mouse cursor. 
+1. Inside the `on mouse move` block, add the **red** `||sprites:set sprite position to||` block.
+2. Drag the "x" label into the sprite 0 (x) position
+3. Drag the "y" label into the sprite 0 (y) position 
+
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/step8.mov.gif)
+
 
 ## Step 8: Detect mouse clicks @fullscreen
 
