@@ -1,291 +1,240 @@
-# Cookie Clicker Arcade Game
 
-## Introduction 4 @showdialog
+# Cookie Clicker Game
 
-Let's build a simple Cookie Clicker game! In this game, you'll click on a cookie sprite to earn points. The more you click, the more cookies you collect!
+## Introduction @unplugged
+
+In this tutorial, we will make a Cookie Clicker game! You will control a black square with your mouse and try to collect cookies to score points.
 
 ![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie.png)
 
-## Step 1: Create a cookie sprite @fullscreen
+## Step 1: Start your Game
+First, we need the **green** `on start` block. This is where we'll put all the code that runs when your game begins.
 
-First, let's create a cookie sprite that players will click on.
+On start block is automatically added
+We'll add code inside it in the next steps
+
 
 ```blocks
-let cookie = sprites.create(img`
-    . . . . . . e e e e . . . . . .
-    . . . . e e 4 5 5 5 e e . . . .
-    . . . e 4 5 6 2 2 7 6 5 e . . .
-    . . e 5 6 6 7 2 2 6 7 7 6 e . .
-    . e 5 5 7 7 7 6 6 7 7 7 5 5 e .
-    . e 5 6 7 7 8 8 8 8 7 7 7 5 e .
-    . e 5 5 7 7 8 8 8 8 7 8 7 5 e .
-    e 4 5 5 6 7 8 7 7 8 7 8 6 5 4 e
-    e 5 5 5 6 7 8 7 7 8 8 6 5 5 5 e
-    e 5 5 5 6 6 8 8 8 8 7 6 5 5 5 e
-    e 5 5 5 e 7 7 7 7 7 7 e 5 5 5 e
-    e 5 5 e d 7 7 7 7 7 7 d e 5 5 e
-    . e e d d d e e e e d d d e e .
-    . . e d d e 5 5 5 5 e d d e . .
-    . . . e e 5 5 5 5 5 5 e e . . .
-    . . . . e 5 5 5 5 5 5 e . . . .
-`, SpriteKind.Player)
-cookie.setPosition(80, 60)
+// On start block is automatically added
+// We'll add code inside it in the next steps
 ```
 
-## Step 2: Create a score variable @fullscreen
+## Step 2: Set the background color @fullscreen
 
-Next, let's create a score variable to keep track of how many cookies we've clicked.
+Let's add a **green** `||scene:set background color to (color)||` block to make our game look nice.
+
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-background.png)
+
+- Choose the color as shown in the blocks below
 
 ```blocks
-let cookie: Sprite = null
-let score = 0
-info.setScore(0)
-cookie = sprites.create(img`
-    . . . . . . e e e e . . . . . .
-    . . . . e e 4 5 5 5 e e . . . .
-    . . . e 4 5 6 2 2 7 6 5 e . . .
-    . . e 5 6 6 7 2 2 6 7 7 6 e . .
-    . e 5 5 7 7 7 6 6 7 7 7 5 5 e .
-    . e 5 6 7 7 8 8 8 8 7 7 7 5 e .
-    . e 5 5 7 7 8 8 8 8 7 8 7 5 e .
-    e 4 5 5 6 7 8 7 7 8 7 8 6 5 4 e
-    e 5 5 5 6 7 8 7 7 8 8 6 5 5 5 e
-    e 5 5 5 6 6 8 8 8 8 7 6 5 5 5 e
-    e 5 5 5 e 7 7 7 7 7 7 e 5 5 5 e
-    e 5 5 e d 7 7 7 7 7 7 d e 5 5 e
-    . e e d d d e e e e d d d e e .
-    . . e d d e 5 5 5 5 e d d e . .
-    . . . e e 5 5 5 5 5 5 e e . . .
-    . . . . e 5 5 5 5 5 5 e . . . .
-`, SpriteKind.Player)
-cookie.setPosition(80, 60)
+// @highlight
+scene.setBackgroundColor(6)
 ```
 
-## Step 3: Add click functionality @fullscreen
+## Step 3: Create a cookie @fullscreen
 
-Now, let's make something happen when we click on the cookie!
+
+Now let's add a cookie that our player can collect. Find the **red** `||sprites:set mysprite to sprite[] of kind Player||` block and change the sprite name to "Cookie".
+
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-sprite.png)
 
 ```blocks
-let cookie: Sprite = null
-let score = 0
-info.setScore(0)
-cookie = sprites.create(img`
-    . . . . . . e e e e . . . . . .
-    . . . . e e 4 5 5 5 e e . . . .
-    . . . e 4 5 6 2 2 7 6 5 e . . .
-    . . e 5 6 6 7 2 2 6 7 7 6 e . .
-    . e 5 5 7 7 7 6 6 7 7 7 5 5 e .
-    . e 5 6 7 7 8 8 8 8 7 7 7 5 e .
-    . e 5 5 7 7 8 8 8 8 7 8 7 5 e .
-    e 4 5 5 6 7 8 7 7 8 7 8 6 5 4 e
-    e 5 5 5 6 7 8 7 7 8 8 6 5 5 5 e
-    e 5 5 5 6 6 8 8 8 8 7 6 5 5 5 e
-    e 5 5 5 e 7 7 7 7 7 7 e 5 5 5 e
-    e 5 5 e d 7 7 7 7 7 7 d e 5 5 e
-    . e e d d d e e e e d d d e e .
-    . . e d d e 5 5 5 5 e d d e . .
-    . . . e e 5 5 5 5 5 5 e e . . .
-    . . . . e 5 5 5 5 5 5 e . . . .
+scene.setBackgroundColor(6)
+// @highlight
+let Cookie = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . e e e e e e . . . . . 
+    . . . . e e e e e e e e . . . . 
+    . . . e e e d d d d e e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e e d d d d e e e . . . 
+    . . . . e e e e e e e e . . . . 
+    . . . . . e e e e e e . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
-cookie.setPosition(80, 60)
+```
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function(sprite, otherSprite) {
-    if (controller.A.isPressed()) {
-        info.changeScoreBy(1)
-    }
+## Step 4: Set up the score @fullscreen
+
+We need to keep track of how many cookies we collect. Add the **red** `set score to` block from the Info category.
+
+```blocks
+scene.setBackgroundColor(6)
+let Cookie = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . e e e e e e . . . . . 
+    . . . . e e e e e e e e . . . . 
+    . . . e e e d d d d e e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e e d d d d e e e . . . 
+    . . . . e e e e e e e e . . . . 
+    . . . . . e e e e e e . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+// @highlight
+info.setScore(0)
+```
+
+## Step 5: Create the player @fullscreen
+
+Now we need to create a player that we can control. Add another **red** `set sprite to` block and change the sprite name to "player1".
+
+```blocks
+scene.setBackgroundColor(6)
+let Cookie = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . e e e e e e . . . . . 
+    . . . . e e e e e e e e . . . . 
+    . . . e e e d d d d e e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e e d d d d e e e . . . 
+    . . . . e e e e e e e e . . . . 
+    . . . . . e e e e e e . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+info.setScore(0)
+// @highlight
+let player1 = sprites.create(img`
+    f 
+    `, SpriteKind.Player)
+```
+
+## Step 6: Add mouse movement @fullscreen
+
+We want our player to follow the mouse. Find the **purple** `on mouse move` block from the Browser category.
+
+```blocks
+// @highlight
+browserEvents.onMouseMove(function (x, y) {
+    
 })
 ```
 
-## Step 4: Add animation effects @fullscreen
+## Step 7: Control the player @fullscreen
 
-Let's add some visual feedback when the player clicks the cookie.
+Now make the player follow your mouse cursor. Inside the `on mouse move` block, add the **red** `set sprite position to` block.
 
 ```blocks
-let cookie: Sprite = null
-let score = 0
-info.setScore(0)
-cookie = sprites.create(img`
-    . . . . . . e e e e . . . . . .
-    . . . . e e 4 5 5 5 e e . . . .
-    . . . e 4 5 6 2 2 7 6 5 e . . .
-    . . e 5 6 6 7 2 2 6 7 7 6 e . .
-    . e 5 5 7 7 7 6 6 7 7 7 5 5 e .
-    . e 5 6 7 7 8 8 8 8 7 7 7 5 e .
-    . e 5 5 7 7 8 8 8 8 7 8 7 5 e .
-    e 4 5 5 6 7 8 7 7 8 7 8 6 5 4 e
-    e 5 5 5 6 7 8 7 7 8 8 6 5 5 5 e
-    e 5 5 5 6 6 8 8 8 8 7 6 5 5 5 e
-    e 5 5 5 e 7 7 7 7 7 7 e 5 5 5 e
-    e 5 5 e d 7 7 7 7 7 7 d e 5 5 e
-    . e e d d d e e e e d d d e e .
-    . . e d d e 5 5 5 5 e d d e . .
-    . . . e e 5 5 5 5 5 5 e e . . .
-    . . . . e 5 5 5 5 5 5 e . . . .
-`, SpriteKind.Player)
-cookie.setPosition(80, 60)
-
-controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
-    if (cookie.overlapsWith(cookie)) {
-        info.changeScoreBy(1)
-        cookie.startEffect(effects.ashes, 200)
-        cookie.scale -= 0.05
-        cookie.scale += 0.05
-    }
+let player1: Sprite = null
+// @highlight
+browserEvents.onMouseMove(function (x, y) {
+    player1.setPosition(x, y)
 })
 ```
 
-## Step 5: Add sound effects @fullscreen
+## Step 8: Detect mouse clicks @fullscreen
 
-Now, let's add some sound effects when we click the cookie!
+We want to check if we've collected a cookie when we click. Find the **purple** `on left mouse button Pressed` block from the Browser category.
 
 ```blocks
-let cookie: Sprite = null
-let score = 0
-info.setScore(0)
-cookie = sprites.create(img`
-    . . . . . . e e e e . . . . . .
-    . . . . e e 4 5 5 5 e e . . . .
-    . . . e 4 5 6 2 2 7 6 5 e . . .
-    . . e 5 6 6 7 2 2 6 7 7 6 e . .
-    . e 5 5 7 7 7 6 6 7 7 7 5 5 e .
-    . e 5 6 7 7 8 8 8 8 7 7 7 5 e .
-    . e 5 5 7 7 8 8 8 8 7 8 7 5 e .
-    e 4 5 5 6 7 8 7 7 8 7 8 6 5 4 e
-    e 5 5 5 6 7 8 7 7 8 8 6 5 5 5 e
-    e 5 5 5 6 6 8 8 8 8 7 6 5 5 5 e
-    e 5 5 5 e 7 7 7 7 7 7 e 5 5 5 e
-    e 5 5 e d 7 7 7 7 7 7 d e 5 5 e
-    . e e d d d e e e e d d d e e .
-    . . e d d e 5 5 5 5 e d d e . .
-    . . . e e 5 5 5 5 5 5 e e . . .
-    . . . . e 5 5 5 5 5 5 e . . . .
-`, SpriteKind.Player)
-cookie.setPosition(80, 60)
-
-controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
-    if (cookie.overlapsWith(cookie)) {
-        info.changeScoreBy(1)
-        cookie.startEffect(effects.ashes, 200)
-        music.baDing.play()
-        cookie.scale -= 0.05
-        cookie.scale += 0.05
-    }
+// @highlight
+browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function (x, y) {
+    
 })
 ```
 
-## Step 6: Add upgrades! @fullscreen
+## Step 9: Check for cookie collection @fullscreen
 
-Let's add an upgrade system that increases the points per click when you reach certain milestones.
+Let's add code to check if the player is touching the cookie. Inside the mouse click block, add the **blue** `if sprite overlaps with` block.
 
 ```blocks
-let cookie: Sprite = null
-let pointsPerClick = 1
-let score = 0
-info.setScore(0)
-cookie = sprites.create(img`
-    . . . . . . e e e e . . . . . .
-    . . . . e e 4 5 5 5 e e . . . .
-    . . . e 4 5 6 2 2 7 6 5 e . . .
-    . . e 5 6 6 7 2 2 6 7 7 6 e . .
-    . e 5 5 7 7 7 6 6 7 7 7 5 5 e .
-    . e 5 6 7 7 8 8 8 8 7 7 7 5 e .
-    . e 5 5 7 7 8 8 8 8 7 8 7 5 e .
-    e 4 5 5 6 7 8 7 7 8 7 8 6 5 4 e
-    e 5 5 5 6 7 8 7 7 8 8 6 5 5 5 e
-    e 5 5 5 6 6 8 8 8 8 7 6 5 5 5 e
-    e 5 5 5 e 7 7 7 7 7 7 e 5 5 5 e
-    e 5 5 e d 7 7 7 7 7 7 d e 5 5 e
-    . e e d d d e e e e d d d e e .
-    . . e d d e 5 5 5 5 e d d e . .
-    . . . e e 5 5 5 5 5 5 e e . . .
-    . . . . e 5 5 5 5 5 5 e . . . .
-`, SpriteKind.Player)
-cookie.setPosition(80, 60)
-
-controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
-    if (cookie.overlapsWith(cookie)) {
-        info.changeScoreBy(pointsPerClick)
-        cookie.startEffect(effects.ashes, 200)
-        music.baDing.play()
-        cookie.scale -= 0.05
-        cookie.scale += 0.05
+let player1: Sprite = null
+let Cookie: Sprite = null
+// @highlight
+browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function (x, y) {
+    if (player1.overlapsWith(Cookie)) {
         
-        // Check for upgrades
-        if (info.score() >= 10 && pointsPerClick == 1) {
-            pointsPerClick = 2
-            game.showLongText("Upgrade! Now you get 2 points per click!", DialogLayout.Bottom)
-        } else if (info.score() >= 30 && pointsPerClick == 2) {
-            pointsPerClick = 5
-            game.showLongText("Upgrade! Now you get 5 points per click!", DialogLayout.Bottom)
-        }
     }
 })
 ```
 
-## Step 7: Add a game goal @fullscreen
+## Step 10: Score points @fullscreen
 
-Let's add a goal for players to reach to win the game.
+Finally, let's add a point to our score when we collect a cookie. Inside the if block, add the **red** `change score by` block.
 
 ```blocks
-let cookie: Sprite = null
-let pointsPerClick = 1
-let score = 0
-let goalScore = 100
-info.setScore(0)
-cookie = sprites.create(img`
-    . . . . . . e e e e . . . . . .
-    . . . . e e 4 5 5 5 e e . . . .
-    . . . e 4 5 6 2 2 7 6 5 e . . .
-    . . e 5 6 6 7 2 2 6 7 7 6 e . .
-    . e 5 5 7 7 7 6 6 7 7 7 5 5 e .
-    . e 5 6 7 7 8 8 8 8 7 7 7 5 e .
-    . e 5 5 7 7 8 8 8 8 7 8 7 5 e .
-    e 4 5 5 6 7 8 7 7 8 7 8 6 5 4 e
-    e 5 5 5 6 7 8 7 7 8 8 6 5 5 5 e
-    e 5 5 5 6 6 8 8 8 8 7 6 5 5 5 e
-    e 5 5 5 e 7 7 7 7 7 7 e 5 5 5 e
-    e 5 5 e d 7 7 7 7 7 7 d e 5 5 e
-    . e e d d d e e e e d d d e e .
-    . . e d d e 5 5 5 5 e d d e . .
-    . . . e e 5 5 5 5 5 5 e e . . .
-    . . . . e 5 5 5 5 5 5 e . . . .
-`, SpriteKind.Player)
-cookie.setPosition(80, 60)
-
-game.onUpdate(function() {
-    if (info.score() >= goalScore) {
-        game.over(true)
-    }
-})
-
-controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
-    if (cookie.overlapsWith(cookie)) {
-        info.changeScoreBy(pointsPerClick)
-        cookie.startEffect(effects.ashes, 200)
-        music.baDing.play()
-        cookie.scale -= 0.05
-        cookie.scale += 0.05
-        
-        // Check for upgrades
-        if (info.score() >= 10 && pointsPerClick == 1) {
-            pointsPerClick = 2
-            game.showLongText("Upgrade! Now you get 2 points per click!", DialogLayout.Bottom)
-        } else if (info.score() >= 30 && pointsPerClick == 2) {
-            pointsPerClick = 5
-            game.showLongText("Upgrade! Now you get 5 points per click!", DialogLayout.Bottom)
-        }
+let player1: Sprite = null
+let Cookie: Sprite = null
+browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function (x, y) {
+    if (player1.overlapsWith(Cookie)) {
+        // @highlight
+        info.changeScoreBy(1)
     }
 })
 ```
 
-## Complete! @showdialog
+## Complete! @unplugged
 
-Congratulations! You've created a simple Cookie Clicker game! Try to reach 100 points to win!
+Great job! You've made a Cookie Collector game!
 
-Here are some ways to expand your game:
-- Add more upgrades
-- Add a timer
-- Create different types of cookies that give different points
-- Add automatic cookie generation over time
+How to play:
+* Move your mouse to control the black square
+* When you touch the cookie, click the left mouse button
+* Each time you click when touching the cookie, you get 1 point
+* Try to get as many points as you can!
 
-Happy coding!
+Here's your complete program:
+
+```blocks
+browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function (x, y) {
+    if (player1.overlapsWith(Cookie)) {
+        info.changeScoreBy(1)
+    }
+})
+browserEvents.onMouseMove(function (x, y) {
+    player1.setPosition(x, y)
+})
+let player1: Sprite = null
+let Cookie: Sprite = null
+scene.setBackgroundColor(6)
+Cookie = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . e e e e e e . . . . . 
+    . . . . e e e e e e e e . . . . 
+    . . . e e e d d d d e e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e d d d d d d e e . . . 
+    . . . e e e d d d d e e e . . . 
+    . . . . e e e e e e e e . . . . 
+    . . . . . e e e e e e . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . .
+`, SpriteKind.Player)
+info.setScore(0)
+player1 = sprites.create(img`
+    f 
+    `, SpriteKind.Player)
+```
+
+Remember:
+* **Green** blocks tell when things happen
+* **Purple** blocks work with the mouse
+* **Blue** blocks make decisions
+* **Red** blocks control sprites and score
