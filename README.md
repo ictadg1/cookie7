@@ -2,6 +2,8 @@
 # Cookie Clicker Game
 
 ## Introduction @unplugged
+Author:
+D.Antrobus 2025
 
 In this tutorial, we will make a Cookie Clicker game! You will control a black square with your mouse and try to collect cookies to score points.
 
