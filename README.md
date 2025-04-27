@@ -141,94 +141,60 @@ Now make the player follow your mouse cursor.
 ![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/step8.mov.gif)
 
 
-## Step 10: Detect mouse clicks @fullscreen
+## Step 11: Detect mouse clicks @fullscreen
 
-We want to check if we've collected a cookie when we click. Find the **purple** `on left mouse button Pressed` block from the Browser category.
+We want to check if we've clicked a cookie when we click. 
 
-```blocks
-// @highlight
-browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function (x, y) {
-    
-})
-```
+`1.` Find the **purple** `on left mouse button Pressed` block from the Browser category.
 
-## Step 11: Check for cookie collection @fullscreen
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-browser-click.png)
 
-Let's add code to check if the player is touching the cookie. Inside the mouse click block, add the **blue** `if sprite overlaps with` block.
+`2.` Go to **light blue** logic library and select `||logic:if true then||`
 
-```blocks
-let player1: Sprite = null
-let Cookie: Sprite = null
-// @highlight
-browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function (x, y) {
-    if (player1.overlapsWith(Cookie)) {
-        
-    }
-})
-```
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-logic-if.png)
 
-## Step 12: Score points @fullscreen
+`3.` Drag `||logic:if true then||` into the on mouse button pressed block
 
-Finally, let's add a point to our score when we collect a cookie. Inside the if block, add the **red** `change score by` block.
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-11-1.png)
 
-```blocks
-let player1: Sprite = null
-let Cookie: Sprite = null
-browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function (x, y) {
-    if (player1.overlapsWith(Cookie)) {
-        // @highlight
-        info.changeScoreBy(1)
-    }
-})
-```
+`4.` Go to **blue** sprites library, scroll down to find `||sprites:mySprite overlaps with otherSprite||`
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-sprite-overlaps.png)
 
-## Complete! @unplugged
+`5.` Drag `||sprites:mySprite overlaps with otherSprite||` into the if block as shown below
 
-Great job! You've made a Cookie Collector game!
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-11.png)
 
-How to play:
-* Move your mouse to control the black square
-* When you touch the cookie, click the left mouse button
-* Each time you click when touching the cookie, you get 1 point
-* Try to get as many points as you can!
+`6.` Click on mySprite and choose "player1"
 
-Here's your complete program:
+`7.` Click on otherSprite and choose "cookie"
 
-```blocks
-browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function (x, y) {
-    if (player1.overlapsWith(Cookie)) {
-        info.changeScoreBy(1)
-    }
-})
-browserEvents.onMouseMove(function (x, y) {
-    player1.setPosition(x, y)
-})
-let player1: Sprite = null
-let Cookie: Sprite = null
-scene.setBackgroundColor(6)
-Cookie = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . e e e e e e . . . . . 
-    . . . . e e e e e e e e . . . . 
-    . . . e e e d d d d e e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e d d d d d d e e . . . 
-    . . . e e e d d d d e e e . . . 
-    . . . . e e e e e e e e . . . . 
-    . . . . . e e e e e e . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . .
-`, SpriteKind.Player)
-info.setScore(0)
-player1 = sprites.create(img`
-    f 
-    `, SpriteKind.Player)
-```
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-11-2.png)
+
+
+## Step 12: Check for cookie collection @fullscreen
+
+Last step! Let's now add one to the score if player clicks on cookie
+
+`1.` Select **pink** Info `||info:change score by 1||` block
+
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-info-change-score.png)
+
+`2.` Drag `||info:change score by 1||` block into the `||logic:if then||` block as shown below
+
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-12.png)
+
+# Congratulations!
+
+Did you finish all of the steps?
+
+Here is the final code to check your progress.
+
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-finished.png)
+
+** What mods can you add to your code to make your game even better?**
+
+- Sound effects?
+- Timer?
 
 Remember:
 * **Green** blocks tell when things happen
