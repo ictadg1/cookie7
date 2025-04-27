@@ -113,8 +113,18 @@ let player1 = sprites.create(img`
 
 ![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-7.png)
 
+## Step 8: Adjust player1 sprite
 
-## Step 8: Add mouse movement @fullscreen
+Click on the grey [ ] box on the Sprite
+- Set x width to 1
+- Set y height to 1
+- Set color to black
+- Use the pencil tool to click the black pixel
+
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-8.png)
+
+
+## Step 9: Add mouse movement @fullscreen
 
 We want our player to follow the mouse. Find the **purple** `||browser events:on mouse move||` block from the Browser category.
 
