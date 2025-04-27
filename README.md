@@ -131,7 +131,7 @@ We want our player to follow the mouse. Find the **purple** `||browser events:on
 ![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-browser-mouse-move.png)
 
 
-## Step 9: Control the player
+## Step 10: Control the player
 
 Now make the player follow your mouse cursor. 
 1. Inside the `on mouse move` block, add the **red** `||sprites:set sprite position to||` block.
@@ -141,7 +141,7 @@ Now make the player follow your mouse cursor.
 ![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/step8.mov.gif)
 
 
-## Step 8: Detect mouse clicks @fullscreen
+## Step 10: Detect mouse clicks @fullscreen
 
 We want to check if we've collected a cookie when we click. Find the **purple** `on left mouse button Pressed` block from the Browser category.
 
@@ -152,7 +152,7 @@ browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function
 })
 ```
 
-## Step 9: Check for cookie collection @fullscreen
+## Step 11: Check for cookie collection @fullscreen
 
 Let's add code to check if the player is touching the cookie. Inside the mouse click block, add the **blue** `if sprite overlaps with` block.
 
@@ -167,7 +167,7 @@ browserEvents.MouseLeft.onEvent(browserEvents.MouseButtonEvent.Pressed, function
 })
 ```
 
-## Step 10: Score points @fullscreen
+## Step 12: Score points @fullscreen
 
 Finally, let's add a point to our score when we collect a cookie. Inside the if block, add the **red** `change score by` block.
 
