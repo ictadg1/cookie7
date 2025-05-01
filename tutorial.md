@@ -1,5 +1,7 @@
 # Cookie Clicker Game Tutorial
 
+Author: D.Antrobus 2025
+
 In this tutorial, we'll create a simple Cookie Clicker game where players click a cookie to earn points!
 
 ## Step 1: Create a cookie sprite
