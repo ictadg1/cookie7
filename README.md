@@ -8,7 +8,7 @@ This repository contains educational tutorials for [Microsoft MakeCode Arcade](h
 
 The Cookie Clicker tutorial is split into two parts to make learning more accessible and to provide clear progression:
 
-### [Part 1: Basic Cookie Clicker Game](https://github.com/ictadg1/cookie-clicker-part1)
+### [Part 1: Basic Cookie Clicker Game](https://github.com/ictadg1/makecode-arcade-tutorials/cookie-clicker-part1)
 
 In Part 1, students will learn how to:
 - Set up a game environment with sprites and backgrounds
@@ -18,7 +18,7 @@ In Part 1, students will learn how to:
 
 Perfect for beginners who are just getting started with MakeCode Arcade!
 
-### [Part 2: Enhanced Cookie Clicker Game](https://github.com/ictadg1/cookie-clicker-part2)
+### [Part 2: Enhanced Cookie Clicker Game](https://github.com/ictadg1/makecode-arcade-tutorials/cookie-clicker-part2)
 
 In Part 2, students will build upon their basic game by adding:
 - Moving targets with bounce effects
