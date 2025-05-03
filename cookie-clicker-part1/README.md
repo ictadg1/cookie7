@@ -24,30 +24,30 @@ Let's add a **blue** `||scene:set background color to (color)||` block to make o
 2. Select the color "teal"
 3. Drag the block into the **green** on start block 
 
-![Set background color](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-background-color.png)
+![Set background color](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/clicker/cookie-background-color.png)
 
 ## Step 3: Create a cookie 
 Now let's add a cookie that our player can click on. 
 
 1. Find the **red** `||sprites:set mysprite to sprite[] of kind Player||` block.
 
-![Set sprite block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-set-sprite.png)
+![Set sprite block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/common/cookie-set-sprite.png)
 
 2. Drag the set sprite block into the on start block as shown below
 3. Change the kind from **Player** to **Food**
 
-![Set sprite to Food](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-sprite-food.png)
+![Set sprite to Food](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/common/cookie-sprite-food.png)
 
 ## Step 4: Draw the cookie in the Image editor
 
 1. Click on the grey box of the Sprite
 
-![Edit sprite image](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-edit-sprite.png)
+![Edit sprite image](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/common/cookie-edit-sprite.png)
 
 2. Set the canvas dimensions to 100 x 100 
 3. Draw Cookie as shown below
 
-![Draw cookie](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-draw-sprite.png)
+![Draw cookie](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/common/cookie-draw-sprite.png)
 
 ## Step 5: Rename mySprite to Cookie
 
