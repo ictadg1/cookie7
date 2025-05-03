@@ -19,7 +19,7 @@ We'll add code inside it in the next steps
 
 Let's add a **blue** `||scene:set background color to (color)||` block to make our game look nice.
 
-![Setting background color](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-set-background.png)
+![Setting background color](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-set-background.png)
 
 1. Choose the block as shown below
 2. Select the color "teal"
@@ -54,7 +54,7 @@ Now let's add a cookie that our player can click on.
 
 1. Click on mySprite down arrow as shown below
 
-![Rename sprite variable](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-rename-variable.png)
+![Rename sprite variable](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-rename-variable.png)
 
 2. Rename "mySprite" to Cookie
 
@@ -62,11 +62,11 @@ Now let's add a cookie that our player can click on.
 
 We need to keep track of how many cookies we click on. Add the **pink** `||info:set score to||` block from the Info category.
 
-![Set score block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-set-score.png)
+![Set score block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-set-score.png)
 
 3. Drag the set score to 0 block into the on start block as shown below
 
-![Score added](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-score-added.png)
+![Score added](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-score-added.png)
 
 ## Step 7: Create the player
 
@@ -82,7 +82,7 @@ let player1 = sprites.create(img`
 
 2. Drag the player1 set sprite to block into the on start block as shown below 
 
-![Set player sprite](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-set-player.png)
+![Set player sprite](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-set-player.png)
 
 ## Step 8: Adjust player1 sprite
 
@@ -92,13 +92,13 @@ Click on the grey [ ] box on the Sprite
 - Set color to black
 - Use the pencil tool to click the black pixel
 
-![Set player pixel](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-player-pixel.png)
+![Set player pixel](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-player-pixel.png)
 
 ## Step 9: Add mouse movement @fullscreen
 
 We want our player to follow the mouse. Find the **purple** `||browser events:on mouse move||` block from the Browser category.
 
-![Mouse move event](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-mouse-move.png)
+![Mouse move event](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-mouse-move.png)
 
 ## Step 10: Control the player
 
@@ -107,7 +107,7 @@ Now make the player follow your mouse cursor.
 2. Drag the "x" label into the sprite 0 (x) position
 3. Drag the "y" label into the sprite 0 (y) position 
 
-![Set position to mouse](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-set-position.png)
+![Set position to mouse](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-set-position.png)
 
 ## Step 11: Detect mouse clicks @fullscreen
 
@@ -115,27 +115,27 @@ We want to check if we've clicked a cookie when we click.
 
 1. Find the **purple** `||browser:on left mouse button Pressed||` block from the Browser category.
 
-![Mouse button event](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-mouse-button.png)
+![Mouse button event](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-mouse-button.png)
 
 2. Go to **light blue** logic library and select `||logic:if true then||`
 
-![Logic if block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-logic-if.png)
+![Logic if block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-logic-if.png)
 
 3. Drag `||logic:if true then||` into the on mouse button pressed block
 
-![If block added](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-if-added.png)
+![If block added](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-if-added.png)
 
 4. Go to **red** sprites library, scroll down to find `||sprites:is sprite overlapping with||`
-![Sprite overlapping block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-sprite-overlaps.png)
+![Sprite overlapping block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-sprite-overlaps.png)
 
 5. Drag `||sprites:is sprite overlapping with||` into the if condition space
 
-![Overlaps condition added](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-overlaps-added.png)
+![Overlaps condition added](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-overlaps-added.png)
 
 6. Click on mySprite and choose "player1"
 7. Click on otherSprite and choose "cookie"
 
-![Select sprites for overlap](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-select-sprites.png)
+![Select sprites for overlap](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-select-sprites.png)
 
 ## Step 12: Check for cookie collection @fullscreen
 
@@ -143,11 +143,11 @@ Last step! Let's now add one to the score if player clicks on cookie
 
 1. Select **pink** Info `||info:change score by 1||` block
 
-![Change score block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-change-score.png)
+![Change score block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-change-score.png)
 
 2. Drag `||info:change score by 1||` block into the `||logic:if then||` block as shown below
 
-![Change score block added](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-change-score-added.png)
+![Change score block added](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-change-score-added.png)
 
 # Congratulations!
 
@@ -155,7 +155,7 @@ Did you finish all of the steps?
 
 Here is the final code to check your progress.
 
-![Final code](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-part1-final.png)
+![Final code](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-part1-final.png)
 
 **What mods can you add to your code to make your game even better?**
 
