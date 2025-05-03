@@ -6,7 +6,8 @@ D.Antrobus 2025
 
 In this tutorial, we will make a Cookie Clicker game! You will control a black square with your mouse and try to collect cookies to score points.
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/images/cookie-part1-preview.png)
+![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/images/cookie-part1-preview.png)
+
 
 ## Step 1: Start your Game
 First, we need the **green** `on start` block. This is where we'll put all the code that runs when your game begins.
