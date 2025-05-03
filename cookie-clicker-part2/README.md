@@ -1,205 +1,220 @@
+# Cookie Clicker Game - Part 2
 
-# Cookie Clicker Game
-
-## Introduction @unplugged
+## Introduction
 Author:
 D.Antrobus 2025
 
-In this tutorial, we will make a Cookie Clicker game! You will control a black square with your mouse and try to collect cookies to score points.
+Welcome to Part 2 of the Cookie Clicker game! In this tutorial, we'll enhance our game with:
+- Cookie movement and bounce effects
+- Special effects when clicking cookies
+- Sound effects
+- A shrinking cookie for more challenge
+- Game over conditions
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie.png)
 
-## Step 1: Start your Game
-First, we need the **green** `on start` block. This is where we'll put all the code that runs when your game begins.
+<!-- 
 
-On start block is automatically added
-We'll add code inside it in the next steps
+dev: http://localhost:8004/common
 
+dev: http://localhost:8004/clicker
 
-```blocks
-// On start block is automatically added
-// We'll add code inside it in the next steps
-```
+https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/
 
-## Step 2: Set the background color @fullscreen
+ -->
+![Cookie clicker game enhanced](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-part2-preview.png)
 
-Let's add a **blue** `||scene:set background color to (color)||` block to make our game look nice.
+## Important:
+Have you coded part 1?
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-background.png)
+![Part 1](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-part1-final.png)
 
-1. Choose the block as shown below
-2. Select the color "teal"
-3. Drag the block into the **green** on start block 
+**Go back and complete Cookie Clicker Part 1 Tutorial if you have not done this yet.**
 
-```blocks
-// @highlight
-scene.setBackgroundColor(6)
-```
 
-## Step 3: Create a cookie 
-Now let's add a cookie that our player can click on. 
+## Step 1: Make your cookie move
 
-1. Find the **red** `||sprites:set mysprite to sprite[] of kind Player||` block.
+First, let's make our cookie bounce around the screen for a more challenging game!
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-sprite.png)
+1. Find the **red** `||sprites:set mySprite bounce on wall on||` block from the Sprites category
 
-`2`. Drag the set sprite block into the on start block as shown below
+![Cookie bounce block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/bounce-walls.png)
 
-```blocks
-scene.setBackgroundColor(6)
-// @highlight
-let mySprite = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-```
+2. Add it to your program after creating the cookie sprite
+3. Change "mySprite" to "cookie" in the dropdown
 
-## Step 4: Draw the cookie in the Image editor
+![Setting cookie bounce](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-set-bounce.png)
 
-1. Click on the grey box of the Sprite
+## Step 2: Set cookie velocity
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-sprite-edit.png)
+Now let's set the speed and direction of the cookie's movement.
 
-`2.` Set the canvas dimensions to 100 x 100 
-`3.` Draw Cookie as shown below
+1. Find the **red** `||sprites:set mySprite velocity to vx: 0 vy: 0||` block
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-draw-cookie.png)
+![Velocity block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-velocity-block.png)
 
+2. Add it to your program after the bounce on wall block
+3. Change "mySprite" to "cookie" in the dropdown
+4. Set the vx to 60 and vy to 50
 
-## Step 5. Rename mySprite to Cookie
+![Setting cookie velocity](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-set-velocity.png)
 
-1. Click on mySprite down arrow as shown below
+## Step 3: Add effects when clicking
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-rename-variable.png)
+Let's add a visual effect when we click the cookie!
 
-`2.` Rename "mySprite" to Cookie
+1. Find the **red** `||sprites:start effect on sprite||` block
 
-## Step 6: Set up the score 
+![Start effect block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-start-effect.png)
 
-We need to keep track of how many cookies we click on. Add the **pink** `||info:set score to||` block from the Info category.
+2. Add this block at the beginning of your if-statement in the mouse button pressed event (before the change score block)
+3. Change the sprite to "cookie"
+4. Select "ashes" for the effect
+5. Set the duration to 100 ms
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-info-set-score.png)
+![Adding effect to cookie](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-add-effect.png)
 
-`3.` Drag the set score to 0 block into the on start block as shown below
+## Step 4: Add sound effects
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-6.png)
+Next, let's add sound when we click the cookie!
 
+1. Find the **pink** `||music:play sound||` block
 
-## Step 7: Create the player
+![Play sound block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-play-sound.png)
 
-Now we need to create a player that we can control. 
+2. Add this block after the change score block in the if-statement
+3. Click on the dropdown and select "create sound effect"
+4. Configure your sound with these settings:
+   - Wave shape: Noise
+   - Starting frequency: 670
+   - Effects: None
+   - Duration: 10 ms
 
-`1.` Add another **red** `||sprites:set sprite to||` block and change the sprite name to "player1".
-```block
-// @highlight
-let player1 = sprites.create(img`
-    f 
-    `, SpriteKind.Player)
-```
+![Sound effect settings](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-sound-settings.png)
 
-`2.` Drag the player1 set sprite to block into the on start block as shown below 
+## Step 5: Add camera shake
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-7.png)
+Let's make the screen shake when we click the cookie!
 
-## Step 8: Adjust player1 sprite
+1. Find the **blue** `||scene:camera shake||` block
 
-Click on the grey [ ] box on the Sprite
-- Set x width to 1
-- Set y height to 1
-- Set color to black
-- Use the pencil tool to click the black pixel
+![Camera shake block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-camera-shake.png)
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-8.png)
+2. Add this block after the play sound block
+3. Set the intensity to 4 and the duration to 100 ms
 
+![Adding camera shake](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-add-shake.png)
 
-## Step 9: Add mouse movement @fullscreen
+## Step 6: Add a size variable
 
-We want our player to follow the mouse. Find the **purple** `||browser events:on mouse move||` block from the Browser category.
+Now let's make our game more challenging by making the cookie shrink over time!
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-browser-mouse-move.png)
+First, we need to create a variable to track the cookie's size.
+1. Select `||variables:Make a Variable||"
 
+![Make a variable](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/make-variable.png)
 
-## Step 10: Control the player
+2. Name the variable "size"
 
-Now make the player follow your mouse cursor. 
-1. Inside the `on mouse move` block, add the **red** `||sprites:set sprite position to||` block.
-2. Drag the "x" label into the sprite 0 (x) position
-3. Drag the "y" label into the sprite 0 (y) position 
+![Name variable](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/name-variable-size.png)
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/step8.mov.gif)
 
+3. Find the **red** `||variables:set size to||` block
 
-## Step 11: Detect mouse clicks @fullscreen
+![Set variable block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-size-variable.png)
 
-We want to check if we've clicked a cookie when we click. 
+3. Add this to the beginning of your on start section (before creating the cookie)
+4. Set the value to 1
 
-`1.` Find the **purple** `on left mouse button Pressed` block from the Browser category.
+![Adding size variable](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-add-size.png)
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-browser-click.png)
+## Step 7: Add game update interval
 
-`2.` Go to **light blue** logic library and select `||logic:if true then||`
+Now we'll set up the code that runs repeatedly to shrink the cookie.
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-logic-if.png)
+1. Find the **purple** `||game:on game update every||` block
 
-`3.` Drag `||logic:if true then||` into the on mouse button pressed block
+![Game update block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/game-update.png)
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-11-1.png)
+2. Set the interval to 1000 milliseconds (1 second)
 
-`4.` Go to **blue** sprites library, scroll down to find `||sprites:mySprite overlaps with otherSprite||`
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-sprite-overlaps.png)
+![Setting update interval](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/set-update.png)
 
-`5.` Drag `||sprites:mySprite overlaps with otherSprite||` into the if block as shown below
+## Step 8: Shrink the cookie
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-11.png)
+Inside the game update block, we need to:
+1. Decrease the size variable
+2. Update the cookie's scale
 
-`6.` Click on mySprite and choose "player1"
+1. Add a **red** `||variables:change size by||` block into the game update section
 
-`7.` Click on otherSprite and choose "cookie"
+![Change size block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-change-size.png)
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-11-2.png)
+2. Set the size value to -0.02
 
+![Set scale value](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/set-scale-value.png)
 
-## Step 12: Check for cookie collection @fullscreen
+3. Add a **red** `||sprites:set sprite scale to||` block after the change size block
 
-Last step! Let's now add one to the score if player clicks on cookie
+![Set scale block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-set-scale.png)
 
-`1.` Select **pink** Info `||info:change score by 1||` block
+![Select size variable](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-select-size.png)
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-info-change-score.png)
+4. Change "mySprite" to "cookie" and set the scale to "size"
 
-`2.` Drag `||info:change score by 1||` block into the `||logic:if then||` block as shown below
+5. Keep the anchor as "middle"
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-set-step-12.png)
+![Scaling the cookie](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-scaling.png)
 
-# Congratulations!
+## Step 9: Add game over condition
 
-Did you finish all of the steps?
+Finally, let's end the game when the cookie gets too small!
+
+1. Add a **light blue** `||logic:if then||` block after the set scale block
+
+![If block for game over](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/logic-if.png)
+
+![if block for game over](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/game-over-if.png)
+
+2. Add a **light blue** `||logic:0 <= 0||` block for the condition
+
+![logic condition](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/logic-condition.png)
+
+3. Change the first value to "size" (select "size" from variables) and the condition to "<="
+4. Keep the second value as 0
+
+![Setting game over condition](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-game-over-condition.png)
+
+5. Inside the if block, add a **purple** `||game:game over||` block
+
+![Game over block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/game-over.png)
+
+6. Add a **purple** `||game:set game over message||` block after the game over block
+
+![Game over set](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-game-over.png)
+
+## Congratulations!
+
+You've enhanced your Cookie Clicker game with:
+- A moving cookie that bounces around the screen
+- Cool visual effects when clicking the cookie
+- Sound effects and camera shake for extra feedback
+- A shrinking cookie that creates a time challenge
+- A game over condition when the cookie gets too small
 
 Here is the final code to check your progress.
 
-![Cookie clicker game](https://raw.githubusercontent.com/ictadg1/cookie7/refs/heads/master/images/cookie-7-finished.png)
+![Final code](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-part2-final.png)
 
-** What mods can you add to your code to make your game even better?**
+**What mods can you add to your code to make your game even better?**
 
-- Sound effects?
-- Timer?
+- Add multiple cookies?
+- Create power-ups that make the cookie grow again?
+- Add different levels with faster cookies?
+- Create a high score system?
 
 Remember:
 * **Green** blocks tell when things happen
-* **Purple** blocks work with the mouse
-* **Blue** blocks make decisions
-* **Red** blocks control sprites and score
+* **Purple** blocks work with the mouse and game events
+* **Blue** blocks control the scene and make decisions
+* **Red** blocks control sprites
+* **Pink** blocks handle score, music and info
