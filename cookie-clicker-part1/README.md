@@ -19,7 +19,7 @@ We'll add code inside it in the next steps
 
 Let's add a **blue** `||scene:set background color to (color)||` block to make our game look nice.
 
-![Setting background color](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-set-background.png)
+![Setting background color](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-set-background.png)
 
 1. Choose the block as shown below
 2. Select the color "teal"
@@ -49,12 +49,12 @@ Now let's add a cookie that our player can click on.
 3. Draw Cookie as shown below
 
 ![Draw cookie](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/master/common/cookie-draw-sprite.png)
-
+z
 ## Step 5: Rename mySprite to Cookie
 
 1. Click on mySprite down arrow as shown below
 
-![Rename sprite variable](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-rename-variable.png)
+![Rename sprite variable](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-rename-variable.png)
 
 2. Rename "mySprite" to Cookie
 
@@ -62,7 +62,7 @@ Now let's add a cookie that our player can click on.
 
 We need to keep track of how many cookies we click on. Add the **pink** `||info:set score to||` block from the Info category.
 
-![Set score block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-set-score.png)
+![Set score block](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-set-score.png)
 
 3. Drag the set score to 0 block into the on start block as shown below
 
@@ -98,7 +98,7 @@ Click on the grey [ ] box on the Sprite
 
 We want our player to follow the mouse. Find the **purple** `||browser events:on mouse move||` block from the Browser category.
 
-![Mouse move event](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-mouse-move.png)
+![Mouse move event](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-mouse-move.png)
 
 ## Step 10: Control the player
 
@@ -107,7 +107,7 @@ Now make the player follow your mouse cursor.
 2. Drag the "x" label into the sprite 0 (x) position
 3. Drag the "y" label into the sprite 0 (y) position 
 
-![Set position to mouse](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/clicker/cookie-set-position.png)
+![Set position to mouse](https://raw.githubusercontent.com/ictadg1/makecode-tutorial-images/refs/heads/main/common/cookie-set-position.png)
 
 ## Step 11: Detect mouse clicks @fullscreen
 
